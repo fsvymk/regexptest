@@ -39,7 +39,7 @@ void regexptest::on_pushButton_clicked()
         int x = result.count();
 
         for(i=0; i<x; i++){
-           ui->plainTextEdit_2->appendPlainText(QString::number(i)+" "+result.at(i));
+           ui->plainTextEdit_2->appendPlainText(QString::number(i)+"-"+QString::number(i)+" "+result.at(i));
         }
         //ui->plainTextEdit_2->appendPlainText("\n");
         //ui->plainTextEdit_2->appendPlainText(QR.cap(1));
