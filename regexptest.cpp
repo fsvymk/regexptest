@@ -30,14 +30,17 @@ void regexptest::on_pushButton_clicked()
         ++count;
         pos += QR.matchedLength();
 
-        result.append(QR.cap(0));
+        result.clear();
+        result.append(QR.capturedTexts());
         //result.append(QR.cap(1));
        // allResult.insert(count, QR.capturedTexts());
+
         int i = 0;
-        //int x =
-        //for(i=0; i<x; i++){
-           ui->plainTextEdit_2->appendPlainText(QString::number(i)+" "+QR.cap(i));
-        //}
+        int x = result.count();
+
+        for(i=0; i<x; i++){
+           ui->plainTextEdit_2->appendPlainText(QString::number(i)+" "+result.at(i));
+        }
         //ui->plainTextEdit_2->appendPlainText("\n");
         //ui->plainTextEdit_2->appendPlainText(QR.cap(1));
     }
