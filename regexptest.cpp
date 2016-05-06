@@ -13,10 +13,17 @@ regexptest::~regexptest()
     delete ui;
 }
 
+QString sidQRegExpEscape(QString regExp){return regExp.replace("\\","\\\\");}
+
 void regexptest::on_pushButton_clicked()
 {
     QString code = ui->plainTextEdit->toPlainText();
     QString rege = ui->lineEdit->text();
+
+    QString esca = rege.replace("\\","\\\\");
+
+                                // QRegExp::escape(rege); // shit
+    ui->lineEdit_2->setText(esca);
 
     QRegExp QR(rege, Qt::CaseInsensitive);
     QStringList result;
@@ -39,7 +46,7 @@ void regexptest::on_pushButton_clicked()
         int x = result.count();
 
         for(i=0; i<x; i++){
-           ui->plainTextEdit_2->appendPlainText(QString::number(i)+"-"+QString::number(i)+" "+result.at(i));
+           ui->plainTextEdit_2->appendPlainText(QString::number(count)+"-"+QString::number(i)+" "+result.at(i));
         }
         //ui->plainTextEdit_2->appendPlainText("\n");
         //ui->plainTextEdit_2->appendPlainText(QR.cap(1));

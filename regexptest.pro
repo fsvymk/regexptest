@@ -13,8 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        regexptest.cpp
+        regexptest.cpp \
+    ../sid/sid.cpp
 
-HEADERS  += regexptest.h
+HEADERS  += regexptest.h \
+    ../sid/sid.h \
+    ../sid/sid_global.h
 
 FORMS    += regexptest.ui
+
+DISTFILES += \
+    samples.re
