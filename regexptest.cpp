@@ -20,10 +20,10 @@ void regexptest::on_pushButton_clicked()
     QString code = ui->plainTextEdit->toPlainText();
     QString rege = ui->lineEdit->text();
 
-    QString esca = rege.replace("\\","\\\\");
+    //QString esca = rege.replace("\\","\\\\");
 
                                 // QRegExp::escape(rege); // shit
-    ui->lineEdit_2->setText(esca);
+    //ui->lineEdit_2->setText(esca);
 
     QRegExp QR(rege, Qt::CaseInsensitive);
     QStringList result;
