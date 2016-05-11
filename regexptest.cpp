@@ -17,8 +17,11 @@ QString sidQRegExpEscape(QString regExp){return regExp.replace("\\","\\\\");}
 
 void regexptest::on_pushButton_clicked()
 {
+    useCase_translate();
     QString code = ui->plainTextEdit->toPlainText();
     QString rege = ui->lineEdit->text();
+
+    if(rege.length()<1) return;
 
     //QString esca = rege.replace("\\","\\\\");
 
@@ -52,3 +55,20 @@ void regexptest::on_pushButton_clicked()
         //ui->plainTextEdit_2->appendPlainText(QR.cap(1));
     }
 }
+
+void regexptest::useCase_translate(){
+    QString rege = ui->lineEdit->text();
+    QString repl = rege.replace("\\", "\\\\");
+
+    ui->lineEdit_2->setText(repl);
+}
+
+void regexptest::on_lineEdit_editingFinished()
+{
+    useCase_translate();
+}
+
+
+
+
+
