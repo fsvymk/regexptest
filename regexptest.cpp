@@ -21,7 +21,16 @@ void regexptest::on_pushButton_clicked()
     QString code = ui->plainTextEdit->toPlainText();
     QString rege = ui->lineEdit->text();
 
+
+
     if(rege.length()<1) return;
+
+    QFile file("rege.log");
+    if(file.open(QIODevice::WriteOnly)){
+        file.write(QByteArray::fromStdString(rege.toStdString()));
+        file.write("\n");
+    };
+    file.close();
 
     //QString esca = rege.replace("\\","\\\\");
 
@@ -42,8 +51,6 @@ void regexptest::on_pushButton_clicked()
 
         result.clear();
         result.append(QR.capturedTexts());
-        //result.append(QR.cap(1));
-       // allResult.insert(count, QR.capturedTexts());
 
         int i = 0;
         int x = result.count();
@@ -51,8 +58,7 @@ void regexptest::on_pushButton_clicked()
         for(i=0; i<x; i++){
            ui->plainTextEdit_2->appendPlainText(QString::number(count)+"-"+QString::number(i)+" "+result.at(i));
         }
-        //ui->plainTextEdit_2->appendPlainText("\n");
-        //ui->plainTextEdit_2->appendPlainText(QR.cap(1));
+
     }
 }
 
@@ -68,7 +74,12 @@ void regexptest::on_lineEdit_editingFinished()
     useCase_translate();
 }
 
+void regexptest::on_pushButton_3_clicked()
+{
+    ui->plainTextEdit->setPlainText("debug_prnt (\"Module IP1 was run at %02d:%02d\", m_pos, m_channel);");
+}
 
-
-
-
+void regexptest::on_pushButton_2_clicked()
+{
+    ui->plainTextEdit_2->setPlainText("");
+}

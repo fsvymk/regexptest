@@ -19,6 +19,10 @@ private slots:
     void on_pushButton_clicked();
     void on_lineEdit_editingFinished();
     void useCase_translate();
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::regexptest *ui;
 };
